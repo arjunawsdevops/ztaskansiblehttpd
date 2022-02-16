@@ -1,19 +1,7 @@
 - hosts: all
   become: true
   tasks:
-    - name: Installing rben dependencies
-      apt: name={{ item }} state=present 
-      become: yes
-      with_items:
-      - autoconf 
-      - bison 
-      - build-essential 
-      - libssl-dev 
-      - libyaml-dev
-      - libreadline6-dev 
-      - zlib1g-dev 
-      - libncurses5-dev 
-      - libffi-dev 
-      - libgdbm5 
-      - libgdbm-dev
-      - rbenv
+    - name: install httpd
+      package:
+        name: httpd
+        state: present 
